@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{933FD9E0-F38A-41C4-B62A-CC780A29A4CA}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Ex04.Menus.Test</RootNamespace>
-    <AssemblyName>Ex04.Menus.Test</AssemblyName>
+    <ProjectGuid>{AC3CF4C0-482B-4EBD-B809-2216C4624D04}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Ex04.Menus.Delegates</RootNamespace>
+    <AssemblyName>Ex04.Menus.Delegates</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,22 +32,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="MyApp.cs" />
-    <Compile Include="Program.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ex04.Menus.Interfaces\Ex04.Menus.Interfaces.csproj">
-      <Project>{a2050512-a95e-419a-ab28-9873949461c3}</Project>
-      <Name>Ex04.Menus.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ex04.Menus.Delegates\Ex04.Menus.Delegates.csproj">
-      <Project>{ac3cf4c0-482b-4ebd-b809-2216c4624d04}</Project>
-      <Name>Ex04.Menus.Delegates</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
