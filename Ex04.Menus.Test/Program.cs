@@ -4,7 +4,8 @@
     {
         public static void Main()
         {
-
+            MyApp myApp = new MyApp();
+            myApp.Start();
         }
     }
 }
