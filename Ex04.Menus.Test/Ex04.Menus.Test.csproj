@@ -34,10 +34,16 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyApp.cs" />
+    <Compile Include="DelegatesMenuCreator.cs" />
+    <Compile Include="InterfacesMenuCreator.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Services\DateShowerService.cs" />
+    <Compile Include="Services\SpacesCounterService.cs" />
+    <Compile Include="Services\TimeShowerService.cs" />
+    <Compile Include="Services\VersionShowerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ex04.Menus.Interfaces\Ex04.Menus.Interfaces.csproj">
@@ -48,6 +54,9 @@
       <Project>{ac3cf4c0-482b-4ebd-b809-2216c4624d04}</Project>
       <Name>Ex04.Menus.Delegates</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

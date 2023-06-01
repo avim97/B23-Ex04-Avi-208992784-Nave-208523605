@@ -1,4 +1,4 @@
-﻿namespace Ex04.Menus.Interfaces
+﻿namespace Ex04.Menus.Delegates
 {
     public class MainMenu : Menu
     {
@@ -12,7 +12,7 @@
         {
             bool isRunning = true;
 
-            while(isRunning)
+            while (isRunning)
             {
                 Display();
                 var userChoice = GetUserChoice();
