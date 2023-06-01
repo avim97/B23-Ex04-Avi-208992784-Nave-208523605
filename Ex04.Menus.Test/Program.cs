@@ -4,8 +4,11 @@
     {
         public static void Main()
         {
-            MyApp myApp = new MyApp();
-            myApp.Start();
+            var interfacesMenu = InterfacesMenuCreator.GetMenu();
+            var delegatesMenu = DelegatesMenuCreator.GetMenu();
+
+            interfacesMenu.Enter();
+            delegatesMenu.Enter();
         }
     }
 }

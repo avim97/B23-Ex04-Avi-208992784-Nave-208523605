@@ -39,13 +39,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IClickListener.cs" />
+    <Compile Include="IActionObserver.cs" />
     <Compile Include="MainMenu.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="MenuItem.cs" />
-    <Compile Include="Nodes\CountSpaces.cs" />
-    <Compile Include="Nodes\ShowDate.cs" />
-    <Compile Include="Nodes\ShowTime.cs" />
-    <Compile Include="Nodes\ShowVersion.cs" />
+    <Compile Include="MenuItemCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
