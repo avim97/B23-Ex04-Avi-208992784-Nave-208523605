@@ -15,9 +15,9 @@ namespace Ex04.Menus.Test.Services
 
         public void MenuItem_BeenSelected()
         {
+            Console.Clear();
             string time = DateTime.Now.ToString(k_TimeFormat);
             string versionMessage = string.Format(@"The hour is: {0}", time);
-
             Console.WriteLine(versionMessage);
         }
         void IActionObserver.DoAction()

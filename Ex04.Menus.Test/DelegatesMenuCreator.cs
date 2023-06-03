@@ -27,7 +27,7 @@ namespace Ex04.Menus.Test
             const string k_ShowTimeActionItemTitle = "Show Time";
             const string k_ShowVersionActionItemTitle = "Show Version";
             const string k_CountSpacesActionItemTitle = "Count Spaces";
-            
+
             MenuItem showDateActionItem = createMenuActionItem(k_ShowDateActionItemTitle, r_DateShower.MenuItem_BeenSelected);
             MenuItem showTimeActionItem = createMenuActionItem(k_ShowTimeActionItemTitle, r_TimeShower.MenuItem_BeenSelected);
             MenuItem showDateAndTimeSubMenu = createMenuItem(k_ShowDateAndTimeSubMenuTitle, showDateActionItem, showTimeActionItem);

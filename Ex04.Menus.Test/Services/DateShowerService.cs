@@ -14,9 +14,9 @@ namespace Ex04.Menus.Test.Services
         }
         public void MenuItem_BeenSelected()
         {
+            Console.Clear();
             string date = DateTime.Now.ToString(k_DateFormat);
             string versionMessage = string.Format(@"The date is: {0}", date);
-
             Console.WriteLine(versionMessage);
         }
         void IActionObserver.DoAction()

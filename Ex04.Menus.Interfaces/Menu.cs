@@ -55,6 +55,7 @@ namespace Ex04.Menus.Interfaces
         }
         protected internal void Display()
         {
+            Console.Clear();
             Console.Write(this);
         }
         public override string ToString()

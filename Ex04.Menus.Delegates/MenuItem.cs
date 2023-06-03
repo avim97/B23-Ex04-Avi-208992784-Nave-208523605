@@ -24,7 +24,7 @@ namespace Ex04.Menus.Delegates
             bool isParent = MenuItems != null;
             bool isRunning = true;
 
-            do
+            while (isRunning)
             {
                 if (isParent)
                 {
@@ -33,11 +33,14 @@ namespace Ex04.Menus.Delegates
                     this.HandleUserChoice(userChoice, ref isRunning);
                 }
                 else
-                {
-                    this.OnSelected();
+                { 
                     isRunning = false;
+                    this.OnSelected();
+                    Console.WriteLine(@"
+Press any key to return to previous menu...");
+                    Console.ReadKey();
                 }
-            } while (isRunning);
+            }
         }
         public void SubscribeAsObserver(Action i_Subscriber)
         {

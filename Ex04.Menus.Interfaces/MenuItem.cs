@@ -39,6 +39,9 @@ namespace Ex04.Menus.Interfaces
                 {
                     m_ActionObserver.DoAction();
                     isRunning = false;
+                    Console.WriteLine(@"
+Press any key to return to previous menu...");
+                    Console.ReadKey();
                 }
             }
         }

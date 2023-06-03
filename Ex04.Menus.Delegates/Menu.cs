@@ -55,6 +55,7 @@ namespace Ex04.Menus.Delegates
         protected internal abstract void Operate();
         protected internal void Display()
         {
+            Console.Clear();
             Console.Write(this);
         }
         public override string ToString()

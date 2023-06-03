@@ -23,12 +23,11 @@ namespace Ex04.Menus.Test.Services
         }
         public void MenuItem_BeenSelected()
         {
+            Console.Clear();
             Console.WriteLine(k_InputRequestMessage);
-
             string sentence = Console.ReadLine();
             int spaceCount = countSpaces(sentence);
             string responseMessage = string.Format(k_ResponseMessageFormat, spaceCount);
-
             Console.WriteLine(responseMessage);
         }
         void IActionObserver.DoAction()
