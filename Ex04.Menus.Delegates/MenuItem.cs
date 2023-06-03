@@ -33,11 +33,13 @@ namespace Ex04.Menus.Delegates
                     this.HandleUserChoice(userChoice, ref isRunning);
                 }
                 else
-                { 
+                {
+                    const string k_PressAnyKeyToReturnToPrevMenuMessage = @"
+Press any key to return to previous menu...";
+
                     isRunning = false;
                     this.OnSelected();
-                    Console.WriteLine(@"
-Press any key to return to previous menu...");
+                    Console.WriteLine(k_PressAnyKeyToReturnToPrevMenuMessage);
                     Console.ReadKey();
                 }
             }

@@ -17,7 +17,7 @@ namespace Ex04.Menus.Interfaces
         {
             bool isRunning = true;
 
-            while(isRunning)
+            while (isRunning)
             {
                 this.Display();
                 this.GetUserChoice(out int userChoice);

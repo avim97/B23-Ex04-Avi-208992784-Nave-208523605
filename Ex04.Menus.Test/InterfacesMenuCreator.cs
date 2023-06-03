@@ -1,5 +1,9 @@
-﻿using Ex04.Menus.Interfaces;
+﻿using Ex04.Menus.Delegates;
+using Ex04.Menus.Interfaces;
 using Ex04.Menus.Test.Services;
+using MainMenu = Ex04.Menus.Interfaces.MainMenu;
+using Menu = Ex04.Menus.Interfaces.Menu;
+using MenuItem = Ex04.Menus.Interfaces.MenuItem;
 
 namespace Ex04.Menus.Test
 {
@@ -44,10 +48,7 @@ namespace Ex04.Menus.Test
                 Title = i_Title
             };
 
-            foreach (var item in i_SubMenuItemsToAdd)
-            {
-                mainMenu.AddSubItem(item);
-            }
+            mainMenu.AddSubItems(i_SubMenuItemsToAdd);
 
             return mainMenu;
         }
@@ -58,10 +59,7 @@ namespace Ex04.Menus.Test
                 Title = i_Title
             };
 
-            foreach (var item in i_SubMenuItemsToAdd)
-            {
-                menuItem.AddSubItem(item);
-            }
+            menuItem.AddSubItems(i_SubMenuItemsToAdd);
 
             return menuItem;
         }

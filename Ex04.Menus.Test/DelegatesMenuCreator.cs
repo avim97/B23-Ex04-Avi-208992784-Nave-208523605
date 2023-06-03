@@ -45,10 +45,7 @@ namespace Ex04.Menus.Test
                 Title = i_Title
             };
 
-            foreach (var item in i_SubMenuItemsToAdd)
-            {
-                mainMenu.AddSubItem(item);
-            }
+            mainMenu.AddSubItems(i_SubMenuItemsToAdd);
 
             return mainMenu;
         }
@@ -59,10 +56,7 @@ namespace Ex04.Menus.Test
                 Title = i_Title
             };
 
-            foreach (var item in i_SubMenuItemsToAdd)
-            {
-                menuItem.AddSubItem(item);
-            }
+            menuItem.AddSubItems(i_SubMenuItemsToAdd);
 
             return menuItem;
         }

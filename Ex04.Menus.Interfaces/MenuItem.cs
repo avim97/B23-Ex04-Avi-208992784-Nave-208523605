@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
 
 namespace Ex04.Menus.Interfaces
 {
@@ -26,7 +23,7 @@ namespace Ex04.Menus.Interfaces
         {
             bool isParent = MenuItems != null;
             bool isRunning = true;
-            
+
             while (isRunning)
             {
                 if (isParent)
@@ -37,10 +34,12 @@ namespace Ex04.Menus.Interfaces
                 }
                 else
                 {
-                    m_ActionObserver.DoAction();
+                    const string k_PressAnyKeyToReturnToPrevMenuMessage = @"
+Press any key to return to previous menu...";
+
                     isRunning = false;
-                    Console.WriteLine(@"
-Press any key to return to previous menu...");
+                    m_ActionObserver.DoAction();
+                    Console.WriteLine(k_PressAnyKeyToReturnToPrevMenuMessage);
                     Console.ReadKey();
                 }
             }

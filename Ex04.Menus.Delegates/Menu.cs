@@ -16,20 +16,29 @@ namespace Ex04.Menus.Delegates
             Title = i_Title;
             MenuItems = null;
         }
-        public void AddSubItem(MenuItem i_ToAdd)
+        public void AddSubItem(MenuItem i_SubMenuItemsToAdd)
         {
             if (MenuItems == null)
             {
                 MenuItems = new MenuItemCollection();
             }
 
-            MenuItems.Add(i_ToAdd);
+            MenuItems.Add(i_SubMenuItemsToAdd);
         }
-        protected internal virtual void HandleUserChoice(int i_UserChoice, ref bool i_ReactivateMenu)
+        public void AddSubItems(params MenuItem[] i_SubMenuItemsToAdd)
+        {
+            if (MenuItems == null)
+            {
+                MenuItems = new MenuItemCollection();
+            }
+
+            MenuItems.AddRange(i_SubMenuItemsToAdd);
+        }
+        protected internal virtual void HandleUserChoice(int i_UserChoice, ref bool io_ReactivateMenu)
         {
             if (i_UserChoice == k_EscapeOptionIdx)
             {
-                i_ReactivateMenu = false;
+                io_ReactivateMenu = false;
             }
             else
             {
@@ -42,10 +51,11 @@ namespace Ex04.Menus.Delegates
         {
             string userInput = Console.ReadLine();
             bool isUserInputValid = int.TryParse(userInput, out int userChoice) && !string.IsNullOrEmpty(userInput);
+            const string k_InvalidInputMessage = "Invalid input please try again";
 
             while (!isUserInputValid || userChoice < k_EscapeOptionIdx || userChoice > MenuItems.Count)
             {
-                Console.WriteLine("Invalid input please try again");
+                Console.WriteLine(k_InvalidInputMessage);
                 userInput = Console.ReadLine();
                 isUserInputValid = int.TryParse(userInput, out userChoice) && !string.IsNullOrEmpty(userInput);
             }

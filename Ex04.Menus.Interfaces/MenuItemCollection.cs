@@ -13,9 +13,16 @@ namespace Ex04.Menus.Interfaces
         {
             MenuItems = new LinkedList<MenuItem>();
         }
-        public void Add(MenuItem i_ToAdd)
+        public void Add(MenuItem i_SubMenuItemToAdd)
         {
-            MenuItems.AddLast(i_ToAdd);
+            MenuItems.AddLast(i_SubMenuItemToAdd);
+        }
+        public void AddRange(params MenuItem[] i_SubMenuItemsToAdd)
+        {
+            foreach (var item in i_SubMenuItemsToAdd)
+            {
+                this.Add(item);
+            }
         }
         public override string ToString()
         {
