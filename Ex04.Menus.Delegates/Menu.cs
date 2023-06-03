@@ -5,11 +5,12 @@ namespace Ex04.Menus.Delegates
 {
     public abstract class Menu
     {
-        public string Title { get; }
+        public string Title { get; set; }
         public string EscapeLabel { get; protected set; }
         protected const int k_EscapeOptionIdx = 0;
         internal MenuItemCollection MenuItems { get; private set; }
 
+        protected Menu() { }
         protected Menu(string i_Title)
         {
             Title = i_Title;
@@ -17,7 +18,6 @@ namespace Ex04.Menus.Delegates
         }
         public void AddSubItem(MenuItem i_ToAdd)
         {
-
             if (MenuItems == null)
             {
                 MenuItems = new MenuItemCollection();
@@ -33,22 +33,24 @@ namespace Ex04.Menus.Delegates
             }
             else
             {
-                MenuItems.ElementAt(i_UserChoice - 1).Operate();
+                MenuItems
+                    .ElementAt(i_UserChoice - 1)
+                    ?.Operate();
             }
         }
-        protected internal virtual int GetUserChoice()
+        protected internal virtual void GetUserChoice(out int o_UserChoice)
         {
             string userInput = Console.ReadLine();
             bool isUserInputValid = int.TryParse(userInput, out int userChoice) && !string.IsNullOrEmpty(userInput);
 
-            while (!isUserInputValid || (userChoice < k_EscapeOptionIdx || userChoice > MenuItems.Count))
+            while (!isUserInputValid || userChoice < k_EscapeOptionIdx || userChoice > MenuItems.Count)
             {
                 Console.WriteLine("Invalid input please try again");
                 userInput = Console.ReadLine();
                 isUserInputValid = int.TryParse(userInput, out userChoice) && !string.IsNullOrEmpty(userInput);
             }
 
-            return userChoice;
+            o_UserChoice = userChoice;
         }
         protected internal abstract void Operate();
         protected internal void Display()

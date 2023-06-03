@@ -1,24 +1,30 @@
-﻿namespace Ex04.Menus.Interfaces
+﻿using System;
+
+namespace Ex04.Menus.Interfaces
 {
     public class MainMenu : Menu
     {
+        public MainMenu()
+        {
+            EscapeLabel = "Exit";
+        }
         public MainMenu(string i_Title)
             : base(i_Title)
         {
             EscapeLabel = "Exit";
         }
-
         protected internal override void Operate()
         {
             bool isRunning = true;
 
             while(isRunning)
             {
-                Display();
-                var userChoice = GetUserChoice();
-
-                HandleUserChoice(userChoice, ref isRunning);
+                this.Display();
+                this.GetUserChoice(out int userChoice);
+                this.HandleUserChoice(userChoice, ref isRunning);
             }
+
+            Console.Clear();
         }
         public void Enter()
         {

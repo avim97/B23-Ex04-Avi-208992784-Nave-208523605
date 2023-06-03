@@ -9,7 +9,11 @@ namespace Ex04.Menus.Interfaces
     {
         private IActionObserver m_ActionObserver;
 
-        public MenuItem(Menu i_ParentItem, string i_Title)
+        public MenuItem()
+        {
+            EscapeLabel = "Back";
+        }
+        public MenuItem(string i_Title)
             : base(i_Title)
         {
             EscapeLabel = "Back";
@@ -22,15 +26,14 @@ namespace Ex04.Menus.Interfaces
         {
             bool isParent = MenuItems != null;
             bool isRunning = true;
-
+            
             while (isRunning)
             {
                 if (isParent)
                 {
-                    Display();
-                    int userChoice = GetUserChoice();
-
-                    HandleUserChoice(userChoice, ref isRunning);
+                    this.Display();
+                    this.GetUserChoice(out int userChoice);
+                    this.HandleUserChoice(userChoice, ref isRunning);
                 }
                 else
                 {

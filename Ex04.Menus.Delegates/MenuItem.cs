@@ -6,7 +6,11 @@ namespace Ex04.Menus.Delegates
     {
         public event Action Selected;
 
-        public MenuItem(Menu i_ParentItem, string i_Title)
+        public MenuItem()
+        {
+            EscapeLabel = "Back";
+        }
+        public MenuItem(string i_Title)
             : base(i_Title)
         {
             EscapeLabel = "Back";
@@ -24,17 +28,15 @@ namespace Ex04.Menus.Delegates
             {
                 if (isParent)
                 {
-                    Display();
-                    int userChoice = GetUserChoice();
-
-                    HandleUserChoice(userChoice, ref isRunning);
+                    this.Display();
+                    this.GetUserChoice(out int userChoice);
+                    this.HandleUserChoice(userChoice, ref isRunning);
                 }
                 else
                 {
                     this.OnSelected();
                     isRunning = false;
                 }
-
             } while (isRunning);
         }
         public void SubscribeAsObserver(Action i_Subscriber)

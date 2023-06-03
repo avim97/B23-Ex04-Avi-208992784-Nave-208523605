@@ -11,19 +11,29 @@ namespace Ex04.Menus.Test.Services
         private const string k_InputRequestMessage = "Please enter your sentence:";
         private const string k_ResponseMessageFormat = "There are {0} spaces in your sentence.";
 
-        public void DoAction()
+        public static SpacesCounterService CreateInstance()
+        {
+            return new SpacesCounterService();
+        }
+        private int countSpaces(string i_SentenceToAnalyze)
+        {
+            int numSpaces = i_SentenceToAnalyze.Count(character => character.Equals(k_SpaceSymbol));
+
+            return numSpaces;
+        }
+        public void MenuItem_BeenSelected()
         {
             Console.WriteLine(k_InputRequestMessage);
+
             string sentence = Console.ReadLine();
             int spaceCount = countSpaces(sentence);
             string responseMessage = string.Format(k_ResponseMessageFormat, spaceCount);
+
             Console.WriteLine(responseMessage);
         }
-        private int countSpaces(string sentence)
+        void IActionObserver.DoAction()
         {
-            int numSpaces = sentence.Count(character => character.Equals(k_SpaceSymbol));
-
-            return numSpaces;
+            MenuItem_BeenSelected();
         }
     }
 }

@@ -4,11 +4,13 @@
     {
         public static void Main()
         {
-            var interfacesMenu = InterfacesMenuCreator.GetMenu();
-            var delegatesMenu = DelegatesMenuCreator.GetMenu();
+            var interfaceMenuCreator = new InterfacesMenuCreator();
+            var delegatesMenuCreator = new DelegatesMenuCreator();
+            var interfacesMenuDemo = interfaceMenuCreator.GetMenu();
+            var delegatesMenuDemo = delegatesMenuCreator.GetMenu();
 
-            interfacesMenu.Enter();
-            delegatesMenu.Enter();
+            interfacesMenuDemo.Enter();
+            delegatesMenuDemo.Enter();
         }
     }
 }

@@ -6,13 +6,22 @@ namespace Ex04.Menus.Test.Services
 {
     internal class DateShowerService : IActionObserver
     {
-        private readonly string r_DateFormat = "dd/MM/yyyy";
+        private const string k_DateFormat = "dd/MM/yyyy";
 
-        public void DoAction()
+        public static DateShowerService CreateInstance()
         {
-            string date = DateTime.Now.ToString(r_DateFormat);
+            return new DateShowerService();
+        }
+        public void MenuItem_BeenSelected()
+        {
+            string date = DateTime.Now.ToString(k_DateFormat);
+            string versionMessage = string.Format(@"The date is: {0}", date);
 
-            Console.WriteLine($"{date}");
+            Console.WriteLine(versionMessage);
+        }
+        void IActionObserver.DoAction()
+        {
+            MenuItem_BeenSelected();
         }
     }
 }
